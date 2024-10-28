@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата</title>
+</head>
+<body>
+    <h1>Оплатите 500 долларов</h1>
+    <form action="/charge" method="POST" id="payment-form">
+        <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ public_key }}"
+            data-amount="50000"
+            data-name="Enterprise продукт"
+            data-description="Оплата продукта"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-currency="usd">
+        </script>
+    </form>
+</body>
+</html>
