@@ -1,0 +1,30 @@
+{% extends "main/layout.html" %}
+{% block title %}News{% endblock %}
+{% block content %}
+    <div class="news-container">
+        <div class="news-content-wrapper">
+            <h1>News</h1>
+            <div class="row">
+                {% for el in news %}
+                    <div class="col-md-4">
+                        <div class="news-card">
+                            {% if el.image %}
+                                <img src="{{ el.image.url }}" alt="{{ el.title }}" class="card-img-top">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ el.title }}</h5>
+                                <p class="card-text news-text" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                                    {{ el.text }}
+                                </p>
+                                <div class="news-full-text" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out;">
+                                    <p>{{ el.text }}</p>
+                                </div>
+                                <a href="{% url 'news_detail' el.id %}" class="btn btn-warning read-more-btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

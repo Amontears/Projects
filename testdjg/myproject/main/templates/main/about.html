@@ -1,0 +1,84 @@
+{% extends "main/layout.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="news-content-wrapper">
+        <!-- Company description -->
+        <h1 class="text-center mb-4">About Us</h1>
+        <section class="about-section mb-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'main/img/f8.jpg' %}" class="img-fluid rounded shadow-lg" alt="About Us">
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div>
+                        <h3 class="text-muted">Our Values</h3>
+                        <p class="lead">
+                            We are a team of professionals who strive to make the world brighter and simpler. Inspired by technology, we have created a unique collection of cameras that help everyone capture the important moments of life. We believe that every shot is a small work of art.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team -->
+        <section class="team-section mb-5">
+            <h2 class="text-center text-muted mb-4">Our Team</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{% static 'main/img/f9.jpg' %}" class="card-img-top" alt="Team Member 1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">John Johnson</h5>
+                            <p class="card-text">Founder and CEO. A strong leader who inspires the team to create the best products.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{% static 'main/img/f10.jpg' %}" class="card-img-top" alt="Team Member 2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mary Peterson</h5>
+                            <p class="card-text">Designer. Creates stunning designs for cameras and their interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{% static 'main/img/f11.jpg' %}" class="card-img-top" alt="Team Member 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Alex Smith</h5>
+                            <p class="card-text">Engineer. Works on technical support and equipment upgrades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Mission -->
+        <section class="mission-section text-center bg-light py-5 mb-5" style="background-image: url('{% static 'main/img/f7.jpg' %}'); background-size: cover; background-position: center;">
+            <div class="container">
+                <h2 class="text-muted mb-4">Our Mission</h2>
+                <p class="lead">
+                    We create cameras that allow everyone to capture the most important moments. Our goal is to make photography accessible and understandable for everyone, and to inspire people to create beautiful and unique images.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section text-center">
+            <h2 class="text-muted mb-4">Contact Us</h2>
+            <p class="lead">
+                If you have any questions or suggestions, feel free to contact us! We are always happy to help and ready to discuss all your ideas.
+            </p>
+            <a href="mailto:contact@yourwebsite.com" class="email-link">
+                <img src="{% static 'main/img/mailto.png' %}" alt="Email Us" class="email-button">
+            </a>
+        </section>
+    </div>
+</div>
+{% endblock %}

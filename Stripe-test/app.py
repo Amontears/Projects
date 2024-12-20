@@ -14,7 +14,7 @@ def index():
 def charge():
     try:
         # Получаем данные из формы (например, токен Stripe)
-        amount = 50000  # Установите сумму в центах, например 5000 = $50.00
+        amount = 5000  # Установите сумму в центах, например 5000 = $50.00
         customer = stripe.Customer.create(
             email=request.form['stripeEmail'],
             source=request.form['stripeToken']
@@ -25,7 +25,7 @@ def charge():
             customer=customer.id,
             amount=amount,
             currency='usd',
-            description='Оплата продукта'
+            description='Product payment'
         )
 
         return jsonify({'status': 'success'})
@@ -34,3 +34,17 @@ def charge():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    @app.route('/refund', methods=['POST'])
+    def refund():
+        try:
+            # Получаем идентификатор платежа из запроса
+            charge_id = request.form['charge_id']
+            
+            # Создаём возврат
+            refund = stripe.Refund.create(
+                charge=charge_id
+            )
+            
+            return jsonify({'status': 'success', 'refund': refund})
+        except Exception as e:
+            return jsonify({'status': 'error', 'message': str(e)})

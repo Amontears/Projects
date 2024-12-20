@@ -1,0 +1,37 @@
+{% extends "noteapp/base.html" %}
+
+{% block content %}
+
+<div>
+    <h2>Sign Up</h2>
+</div>
+
+<form method="post" action="{% url 'users:signup' %}" autocomplete="off">
+    {% csrf_token %}
+    <div>
+        <label> Username:
+            <input type="text" name="username" id="id_username" autocomplete="off" value="{{ form.username.value|default:'' }}">
+        </label>
+        <span>{{ form.errors.username }}</span>
+    </div>
+    <br>
+    <div>
+        <label> Password:
+            <input type="password" name="password1" id="id_password1" autocomplete="new-password" value="{{ form.password1.value|default:'' }}">
+        </label>
+        <span>{{ form.errors.password1 }}</span>
+    </div>
+    <div>
+        <label> Password confirmation:
+            <input type="password" name="password2" id="id_password2" autocomplete="new-password" value="{{ form.password2.value|default:'' }}">
+        </label>
+        <span>{{ form.errors.password2 }}</span>
+    </div>
+    <div class="grid">
+        <button type="submit">Submit</button>
+        <button type="reset" class="secondary">Reset</button>
+        <button type="button" class="go-back" onclick="window.location.href='{% url 'noteapp:main' %}'">Go back to main page</button>
+    </div>
+</form>
+
+{% endblock %}
